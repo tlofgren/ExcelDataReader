@@ -623,9 +623,9 @@ namespace Excel
 					}
 					else
 					{
-						m_cellsValues[cell.ColumnIndex] = !ConvertOaDate ?
-							_oValue : tryConvertOADateTime(_oValue, (ushort)(cell.XFormat));//date time offset
-					}
+                        m_cellsValues[cell.ColumnIndex] = ConvertOaDate && _oValue != null ?
+                            tryConvertOADateTime(_oValue, (ushort)(cell.XFormat)) : _oValue;//date time offset
+                    }
 
 					break;
 				default:
